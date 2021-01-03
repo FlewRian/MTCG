@@ -13,7 +13,7 @@ namespace MTCG
 
         public void Fight()
         {
-            throw new System.NotImplementedException();
+            
         }
     }
 }

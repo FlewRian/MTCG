@@ -6,9 +6,9 @@ namespace MTCG
 {
     public abstract class BaseCard
     {
-        protected Element element { get; set; }
+        public Element element { get; set; }
         public Category category { get; set; }
-        protected int damage { get; set; }
+        public int damage { get; set; }
         protected string name { get; set; }
         
         public BaseCard(int damage, string name)
