@@ -6,11 +6,11 @@ namespace MTCG
 {
     public class Deck
     {
-        private int cards;
+         private List<BaseCard> deck = new List<BaseCard>();
 
         public void BuildDeck()
         {
-            throw new System.NotImplementedException();
+            
         }
     }
 }

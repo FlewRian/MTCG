@@ -6,7 +6,18 @@ namespace MTCG
 {
     public class Fight
     {
-        private int cardPlayerOne;
-        private int cardPlayerTwo;
+        private BaseCard cardPlayerOne;
+        private BaseCard cardPlayerTwo;
+
+        public FightRound(BaseCard cardPlayerOne, BaseCard cardPlayerTwo)
+        {
+            switch (cardPlayerOne.category)
+            {
+                case Category.Monster when cardPlayerTwo.category == Category.Monster:
+                    {
+
+                    }
+            }
+        }
     }
 }

@@ -22,20 +22,18 @@
     </TypeIdentifier>
   </Class>
   <Class Name="MTCG.Monstercard">
-    <Position X="5" Y="2.5" Width="1.5" />
+    <Position X="5" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Monstercrad.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="MTCG.Spellcard">
-    <Position X="5" Y="4" Width="1.5" />
+    <Position X="5" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Spellcard.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="MTCG.Shop">
     <Position X="7.5" Y="2.5" Width="1.5" />
@@ -51,14 +49,6 @@
       <FileName>Arena.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MTCG.Player">
-    <Position X="9.5" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Player.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
   <Class Name="MTCG.DB">
     <Position X="15.75" Y="7" Width="1.5" />
     <TypeIdentifier>
@@ -69,7 +59,7 @@
   <Class Name="MTCG.Deck">
     <Position X="11.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>Deck.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -80,45 +70,31 @@
       <FileName>Fight.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MTCG.Main">
-    <Position X="9.5" Y="5.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Main.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Interface Name="MTCG.ICard">
+  <Class Name="MTCG.BaseCard">
     <Position X="5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAIAAAAAAAAAAAIAAAAAAA=</HashCode>
-      <FileName>ICard.cs</FileName>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAIAAAEAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Cards\BaseCard.cs</FileName>
     </TypeIdentifier>
-  </Interface>
-  <Interface Name="MTCG.IPlayer">
-    <Position X="9.5" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAIAEAAAAAAAAAEAEAAAAAAAAAAAAA=</HashCode>
-      <FileName>IPlayer.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
+  </Class>
   <Enum Name="MTCG.Element">
     <Position X="2.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAJAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Element.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="MTCG.Race">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAEAAGAAABAAAAAAgAACAAAAAAACAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAABAAAEAAAAABgAAAAAAAAAIAAAgAAAAAAAgAAA=</HashCode>
       <FileName>Race.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="MTCG.Category">
     <Position X="2.25" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAIAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAgAAAAAAAAA=</HashCode>
       <FileName>Category.cs</FileName>
     </TypeIdentifier>
   </Enum>

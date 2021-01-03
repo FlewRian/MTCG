@@ -4,8 +4,9 @@ using System.Text;
 
 namespace MTCG
 {
-    public class Monstercard : ICard
+    public enum Category
     {
-        private int race;
+        Monster = 0,
+        Spell = 1
     }
 }

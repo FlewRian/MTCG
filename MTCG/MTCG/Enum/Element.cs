@@ -4,7 +4,10 @@ using System.Text;
 
 namespace MTCG
 {
-    public class Spellcard : ICard
+    public enum Element
     {
+        Normal = 0,
+        Fire = 1,
+        Water = 2
     }
 }
