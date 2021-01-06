@@ -16,27 +16,36 @@ namespace MTCG
         private int cardsInDeckPlayerOne = 0;
         private int cardsInDeckPlayerTwo = 0;
         private WinnerCard winnerCard;
+        private PlayerEnum winner;
 
-        public void Fight()
+        public PlayerEnum Fight(List<BaseCard> deckPlayerOne, List<BaseCard> deckPlayerTwo)
         {
+            this.deckPlayerOne = deckPlayerOne;
+            this.deckPlayerTwo = deckPlayerTwo;
             Fight fight = new MTCG.Fight();
-            int roundcount = 0;
+            int roundcount = 1;
             Random rnd = new Random();
             int choosenCardPlayerOne = 0;
             int choosenCardPlayerTwo = 0;
-            while (roundcount < 100)
+            while (roundcount < 101)
             {
+                Console.WriteLine("\nRoundcount: " + roundcount + "\n");
                 if (!this.deckPlayerOne.Any())
                 {
-                    return;
+                    winner = PlayerEnum.PlayerTwo;
+                    return winner;
                 }
 
                 if (!this.deckPlayerTwo.Any())
                 {
-                    return;
+                    winner = PlayerEnum.PlayerOne;
+                    return winner;
                 }
                 this.cardsInDeckPlayerOne = this.deckPlayerOne.Count;
                 this.cardsInDeckPlayerTwo = this.deckPlayerTwo.Count;
+
+                Console.WriteLine("Cards in Deck Player One: " + cardsInDeckPlayerOne);
+                Console.WriteLine("Cards in Deck Player Two: " + cardsInDeckPlayerTwo + "\n");
 
                 choosenCardPlayerOne = rnd.Next(0, cardsInDeckPlayerOne);
                 this.cardPlayerOne = deckPlayerOne[choosenCardPlayerOne];
@@ -67,6 +76,8 @@ namespace MTCG
                 }
                 roundcount++;
             }
+            winner = PlayerEnum.Draw;
+            return winner;
         }
     }
 }

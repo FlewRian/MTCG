@@ -9,7 +9,7 @@ namespace MTCG
         public Element element { get; set; }
         public Category category { get; set; }
         public int damage { get; set; }
-        protected string name { get; set; }
+        public string name { get; set; }
         public Race race { get; set; }
         
         public BaseCard(int damage, string name)
