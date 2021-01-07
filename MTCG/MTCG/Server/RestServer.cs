@@ -10,9 +10,9 @@ namespace MTCG
     class RestServer
     {
 
-        static async Task Main(string[] args)
+        static void Main(string[] args)
         {
-            TcpListener listener = new TcpListener(IPAddress.Loopback, 8000);
+            TcpListener listener = new TcpListener(IPAddress.Loopback, 10001);
             listener.Start(5);
 
             List<string> messagesList = new List<string>();

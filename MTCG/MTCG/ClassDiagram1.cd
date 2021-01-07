@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="MTCG.MessageInput">
-    <Position X="16" Y="0.5" Width="1.5" />
+    <Position X="17" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Server\MessageInput.cs</FileName>
@@ -10,33 +10,33 @@
   <Class Name="MTCG.RequestContext">
     <Position X="18.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAwJABAAAAAAAAAAAACgAABADEAAAgQAAAAI=</HashCode>
+      <HashCode>AAAAAAAAAwJABAAAAAAAAAAAACgAABADEAAAAQAAAAI=</HashCode>
       <FileName>Server\RequestContext.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MTCG.RestServer">
-    <Position X="13.75" Y="0.5" Width="1.5" />
+    <Position X="15.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Server\RestServer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MTCG.Monstercard">
-    <Position X="5" Y="3" Width="1.5" />
+    <Position X="7" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Cards\Monstercrad.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MTCG.Spellcard">
-    <Position X="5" Y="5.25" Width="1.5" />
+    <Position X="7" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Cards\Spellcard.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MTCG.Shop">
-    <Position X="7.5" Y="2.5" Width="1.5" />
+    <Position X="9.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
       <FileName>Shop.cs</FileName>
@@ -45,7 +45,7 @@
   <Class Name="MTCG.Arena">
     <Position X="0.5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAQAAAACgIAAAAQAAAAAAACACCAAAAAAAAAABAAAg=</HashCode>
+      <HashCode>AAAAQAAAACgIAIAAQAAAAAAACACCAAAAAAAAAABAAAg=</HashCode>
       <FileName>Battlelogic\Arena.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -66,15 +66,22 @@
   <Class Name="MTCG.BaseCard">
     <Position X="5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAEAAAAAAgAAAAAAAAAAIAAAEAAAAAAAIAAAAAAA=</HashCode>
+      <HashCode>CAAAAEAAAAAAgAAAAAAAAAAIAAAEAAAAAAAIAAAAAAA=</HashCode>
       <FileName>Cards\BaseCard.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MTCG.Fight">
     <Position X="2.5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAgQAgAAAgAIAAAAgAAAAAAAAAAAAAAAAAAAkAAAAA=</HashCode>
+      <HashCode>AAAgQCgABAgAIAAAAgAAAAAAAAAAAAAAAAAAAkAAAAA=</HashCode>
       <FileName>Battlelogic\Fight.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MTCG.Player">
+    <Position X="7.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Player.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Enum Name="MTCG.Element">
@@ -108,8 +115,8 @@
   <Enum Name="MTCG.PlayerEnum">
     <Position X="2.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>PlayerEnum.cs</FileName>
+      <HashCode>AAAAAAAACAACAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Enum\PlayerEnum.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Segoe UI" Size="9" />

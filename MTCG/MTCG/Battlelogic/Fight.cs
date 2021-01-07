@@ -8,8 +8,8 @@ namespace MTCG
     {
         private BaseCard cardPlayerOne;
         private BaseCard cardPlayerTwo;
-        private int currentDamageCardOne;
-        private int currentDamageCardTwo;
+        private double currentDamageCardOne;
+        private double currentDamageCardTwo;
         private WinnerCard fightResult = WinnerCard.Draw;
 
         public WinnerCard FightRound(BaseCard cardPlayerOne, BaseCard cardPlayerTwo)
@@ -160,7 +160,7 @@ namespace MTCG
                     {
                         //fire effectiv gegen normal
                         this.currentDamageCardOne = this.cardPlayerOne.damage * 2;
-                        this.currentDamageCardTwo = this.cardPlayerTwo.damage / 2;
+                        this.currentDamageCardTwo = this.cardPlayerTwo.damage * 0.5;
                         break;
                     }
                 case Element.Fire when this.cardPlayerTwo.element == Element.Water:

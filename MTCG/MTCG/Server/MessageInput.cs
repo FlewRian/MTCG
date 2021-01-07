@@ -28,8 +28,9 @@ namespace MTCG
             Console.WriteLine("-------------------------");
 
             var requestContext = new RequestContext(message, messagesList);
+            var requestHandler = new RequestHandler(requestContext);
             using var writer = new StreamWriter(socket.GetStream()) { AutoFlush = true };
-            writer.WriteLine(requestContext.Response);
+            writer.WriteLine(requestHandler.ExecuteRequest());
         }
     }
 }

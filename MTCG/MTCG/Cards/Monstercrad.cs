@@ -6,7 +6,7 @@ namespace MTCG
 {
     public class Monstercard : BaseCard
     {
-        public Monstercard(int damage, string name, Element element, Race race) : base(damage, name, element)
+        public Monstercard(int damage, string name, string cardId ,Element element, Race race) : base(damage, name, cardId, element)
         {
             this.race = race;
             this.element = element;
