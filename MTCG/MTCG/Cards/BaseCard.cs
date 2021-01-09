@@ -13,14 +13,14 @@ namespace MTCG
         public Race race { get; set; }
         public string cardId { get; set; }
         
-        public BaseCard(int damage, string name, string cardId)
+        public BaseCard(double damage, string name, string cardId)
         {
             this.damage = damage;
             this.name = name;
             this.cardId = cardId;
         }
 
-        public BaseCard(int damage, string name, string cardId ,Element element) :this(damage, name, cardId)
+        public BaseCard(double damage, string name, string cardId ,Element element) :this(damage, name, cardId)
         {
             this.element = element;
         }

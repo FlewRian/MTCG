@@ -6,7 +6,7 @@ namespace MTCG
 {
     public class Spellcard : BaseCard
     {
-        public Spellcard(int damage, string name, string cardId ,Element element) : base(damage, name, cardId ,element)
+        public Spellcard(double damage, string name, string cardId ,Element element) : base(damage, name, cardId ,element)
         {
             this.element = element;
             this.category = Category.Spell;

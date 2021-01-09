@@ -17,7 +17,8 @@ namespace MTCG
         public string Response { get; set; }
         public int ResponseMessagesId { get; set; }
         public bool IsMessages { get; set; }
-        public string ResponseMessages { get; set; }
+        //public string ResponseMessages { get; set; }
+        public string AuthorizationToken { get; set; }
 
         public RequestContext(string inputMessage, List<string> list)
         {
@@ -26,7 +27,10 @@ namespace MTCG
             FirstLine = messageSplitLine[0];
             int rowCount = 2;
             int index = FindContentLength(messageSplitLine);
-            Content = messageSplitLine[index + rowCount];   
+            FindAuthorization(messageSplitLine);
+            Content = messageSplitLine[index + rowCount]; 
+            
+            
 
             if (BodyExists == true)
             {
@@ -69,6 +73,24 @@ namespace MTCG
                 }
             }
             return index;
+        }
+
+        private void FindAuthorization(string[] messageSplitLine)
+        {
+            string var = "";
+
+            for(int i = 0; i < messageSplitLine.Length; i++)
+            {
+                var = messageSplitLine[i];
+                var var2 = var.Split(":");
+                string var3 = var2[0];
+                if(var3 == "Authorization")
+                {
+                    AuthorizationToken = var2[1];
+                    return;
+                }
+            }
+            return;
         }
     }
 }

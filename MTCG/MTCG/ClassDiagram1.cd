@@ -10,14 +10,14 @@
   <Class Name="MTCG.RequestContext">
     <Position X="18.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAwJABAAAAAAAAAAAACgAABADEAAAAQAAAAI=</HashCode>
+      <HashCode>AAAACAAAAwJABAAAAAAAAAAAACgAABADEAAAAQAAACA=</HashCode>
       <FileName>Server\RequestContext.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MTCG.RestServer">
     <Position X="15.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAhAAAAAA=</HashCode>
       <FileName>Server\RestServer.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -80,8 +80,15 @@
   <Class Name="MTCG.Player">
     <Position X="7.75" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAACQAACAQAAAAAABACAAAIAAAAAAA=</HashCode>
       <FileName>Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MTCG.JsonCard">
+    <Position X="12" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAECAAAAAAAAAIAAAAAQAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>JsonCard.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Enum Name="MTCG.Element">
