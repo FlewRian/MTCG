@@ -8,8 +8,8 @@ namespace MTCG
     {
         static public void E()
         {
-            Fight fight = new Fight();
-            Arena arena = new Arena();
+            /*Fight fight = new Fight();
+            //Arena arena = new Arena();
             List<BaseCard> DeckPlayerOne = new List<BaseCard>();
             List<BaseCard> DeckPlayerTwo = new List<BaseCard>();
             Console.WriteLine("Hallo ich kann was testen");
@@ -37,8 +37,8 @@ namespace MTCG
             
             //WinnerCard winner =  fight.FightRound(WaterDragon, FireElve);
             
-            PlayerEnum winner = arena.Fight(DeckPlayerOne, DeckPlayerTwo);
-            Console.WriteLine("Winner:" + winner);
+            //PlayerEnum winner = arena.Fight(DeckPlayerOne, DeckPlayerTwo);
+            //Console.WriteLine("Winner:" + winner);*/
         }
     }
 }

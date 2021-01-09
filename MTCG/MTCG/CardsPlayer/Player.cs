@@ -27,5 +27,17 @@ namespace MTCG
 
         [JsonProperty("Elo")]
         public int Elo { get; set; }
+
+        public List<BaseCard> CurrentDeck { get; set; }
+
+        public Player()
+        {
+
+        }
+
+        public Player(string name)
+        {
+            Username = name;
+        }
     }
 }

@@ -6,51 +6,61 @@ namespace MTCG
 {
     public class Fight
     {
-        private BaseCard cardPlayerOne;
-        private BaseCard cardPlayerTwo;
-        private double currentDamageCardOne;
-        private double currentDamageCardTwo;
-        private WinnerCard fightResult = WinnerCard.Draw;
+        public BaseCard cardPlayerOne { get; set; }
+        public BaseCard cardPlayerTwo { get; set; }
+        public double currentDamageCardOne { get; set; }
+        public double currentDamageCardTwo { get; set; }
+        public WinnerCard fightResult { get; set; }
 
-        public WinnerCard FightRound(BaseCard cardPlayerOne, BaseCard cardPlayerTwo)
+        public Fight()
+        {
+
+        }
+
+        public Fight(BaseCard card1, BaseCard card2)
+        {
+            this.cardPlayerOne = card1;
+            this.cardPlayerTwo = card2;
+            this.currentDamageCardOne = this.cardPlayerOne.damage;
+            this.currentDamageCardTwo = this.cardPlayerTwo.damage;
+        }
+
+        public WinnerCard FightRound(BaseCard cardPlayerOne, BaseCard cardPlayerTwo, Arena arena)
         {
             this.cardPlayerOne = cardPlayerOne;
             this.cardPlayerTwo = cardPlayerTwo;
-
-            Console.WriteLine("Card PlayerOne: ");
-            WriteCardInfo(cardPlayerOne);
-            Console.WriteLine("Card PlayerTwo: ");
-            WriteCardInfo(cardPlayerTwo);
 
             switch (this.cardPlayerOne.category)
             {
 
                 case Category.Monster when this.cardPlayerTwo.category == Category.Monster:
                     {
-                        Console.WriteLine("Monster vs Monster\n");
+                        this.currentDamageCardOne = this.cardPlayerOne.damage;
+                        this.currentDamageCardTwo = this.cardPlayerTwo.damage;
+                        arena.ArenaLog.AddTextToLog("Fight between two Monsters!");
                         switch (this.cardPlayerOne.race)
                         {
                             case Race.Dragon when this.cardPlayerTwo.race == Race.Goblin:
                                 {
-                                    Console.WriteLine("Dragon vs Goblin\n");
+                                    arena.ArenaLog.AddTextToLog("Goblin from " + arena.playerTwo.Username.ToUpper() + " is too afraid to attack the Dragon from " + arena.playerOne.Username.ToUpper());
                                     this.fightResult = WinnerCard.CardPlayerOne;
                                     break;
                                 }
                             case Race.Goblin when this.cardPlayerTwo.race == Race.Dragon:
                                 {
-                                    Console.WriteLine("Goblin vs Dragon\n");
+                                    arena.ArenaLog.AddTextToLog("Goblin from " + arena.playerOne.Username.ToUpper() + " is too afraid to attack the Dragon from " + arena.playerTwo.Username.ToUpper());
                                     this.fightResult = WinnerCard.CardPlayerTwo;
                                     break;
                                 }
                             case Race.Wizzard when this.cardPlayerTwo.race == Race.Orc:
                                 {
-                                    Console.WriteLine("Wizzard vs Orc\n");
+                                    arena.ArenaLog.AddTextToLog("Wizzard from " + arena.playerOne.Username.ToUpper() + " controls the Orc from " + arena.playerTwo.Username.ToUpper());
                                     this.fightResult = WinnerCard.CardPlayerOne;
                                     break;
                                 }
                             case Race.Orc when this.cardPlayerTwo.race == Race.Wizzard:
                                 {
-                                    Console.WriteLine("Orc vs Wizzard\n");
+                                    arena.ArenaLog.AddTextToLog("Wizzard from " + arena.playerTwo.Username.ToUpper() + " controls the Orc from " + arena.playerOne.Username.ToUpper());
                                     this.fightResult = WinnerCard.CardPlayerTwo;
                                     break;
                                 }
@@ -58,13 +68,13 @@ namespace MTCG
                                 {
                                     if (this.cardPlayerOne.element == Element.Fire)
                                     {
-                                        Console.WriteLine("FireElve vs Dragon\n");
+                                        arena.ArenaLog.AddTextToLog("FireElve from " + arena.playerOne.Username.ToUpper() + " evede the attack from " + arena.playerTwo.Username.ToUpper() + "'s Dragon");
                                         this.fightResult = WinnerCard.CardPlayerOne;
                                         break;
                                     }
                                     else
                                     {
-                                        this.fightResult = CheckWinner();
+                                        this.fightResult = CheckWinner(arena);
                                         break;
                                     }
                                 }
@@ -72,19 +82,19 @@ namespace MTCG
                                 {
                                     if (this.cardPlayerTwo.element == Element.Fire)
                                     {
-                                        Console.WriteLine("Dragon vs FireElve\n");
+                                        arena.ArenaLog.AddTextToLog("FireElve from " + arena.playerTwo.Username.ToUpper() + " evede the attack from " + arena.playerOne.Username.ToUpper() + "'s Dragon");
                                         this.fightResult = WinnerCard.CardPlayerTwo;
                                         break;
                                     }
                                     else
                                     {
-                                        this.fightResult = CheckWinner();
+                                        this.fightResult = CheckWinner(arena);
                                         break;
                                     }
                                 }
                             default:
                                 {
-                                    this.fightResult = CheckWinner();
+                                    this.fightResult = CheckWinner(arena);
                                     break;
                                 }
                         }
@@ -93,8 +103,8 @@ namespace MTCG
 
                 case Category.Monster when this.cardPlayerTwo.category == Category.Spell:
                     {
-                        Console.WriteLine("Monster vs Spell");
-                        fightResult = MonsterVsSpell();
+                        arena.ArenaLog.AddTextToLog("Fight between one Monster and one Spell!");
+                        fightResult = MonsterVsSpell(arena);
                         switch (this.fightResult)
                         {
                             case WinnerCard.CardPlayerOne:
@@ -108,7 +118,7 @@ namespace MTCG
                             case WinnerCard.Draw:
                                 {
                                     CheckElement();
-                                    this.fightResult = CheckWinner();
+                                    this.fightResult = CheckWinner(arena);
                                     break;
                                 }
                         }
@@ -117,8 +127,8 @@ namespace MTCG
 
                 case Category.Spell when this.cardPlayerTwo.category == Category.Monster:
                     {
-                        Console.WriteLine("Spell vs Monster");
-                        fightResult = MonsterVsSpell();
+                        arena.ArenaLog.AddTextToLog("Fight between one Spell and one Monster!");
+                        fightResult = MonsterVsSpell(arena);
                         switch (this.fightResult)
                         {
                             case WinnerCard.CardPlayerOne:
@@ -132,7 +142,7 @@ namespace MTCG
                             case WinnerCard.Draw:
                                 {
                                     CheckElement();
-                                    this.fightResult = CheckWinner();
+                                    this.fightResult = CheckWinner(arena);
                                     break;
                                 }
                         }
@@ -140,9 +150,9 @@ namespace MTCG
                     }
                 case Category.Spell when this.cardPlayerTwo.category == Category.Spell:
                     {
-                        Console.WriteLine("Spell vs Spell");
+                        arena.ArenaLog.AddTextToLog("Fight between two Spells!");
                         CheckElement();
-                        this.fightResult = CheckWinner();
+                        this.fightResult = CheckWinner(arena);
                         return this.fightResult;
                     }
                 default:
@@ -201,59 +211,58 @@ namespace MTCG
                 default:
                     {
                         //same Element, nothing changes
+                        this.currentDamageCardOne = this.cardPlayerOne.damage;
+                        this.currentDamageCardTwo = this.cardPlayerTwo.damage;
                         break;
                     }
             }
         }
 
-        public WinnerCard CheckWinner()
+        public WinnerCard CheckWinner(Arena arena)
         {
-            if (this.cardPlayerOne.damage > this.cardPlayerTwo.damage)
+            if (this.currentDamageCardOne > this.currentDamageCardTwo)
             {
                 //cardPlayerOne wins
-                Console.WriteLine("\nDamage Card One: " + this.cardPlayerOne.damage);
-                Console.WriteLine("Damage Card Two: " + this.cardPlayerTwo.damage);
-                Console.WriteLine("Player One wins");
+                arena.ArenaLog.AddTextToLog(arena.playerOne.Username.ToUpper() + ": " + cardPlayerOne.name + " with " + this.currentDamageCardOne + " Damage fights against " + arena.playerTwo.Username.ToUpper() + ": " + cardPlayerTwo.name + " with " + this.currentDamageCardTwo);
+                arena.ArenaLog.AddTextToLog(arena.playerOne.Username.ToUpper() + " wins this Round!");
                 return WinnerCard.CardPlayerOne;
             }
-            else if (this.cardPlayerOne.damage < this.cardPlayerTwo.damage)
+            else if (this.currentDamageCardOne < this.currentDamageCardTwo)
             {
                 //cardPlayerTwo wins
-                Console.WriteLine("\nDamage Card One: " + this.cardPlayerOne.damage);
-                Console.WriteLine("Damage Card Two: " + this.cardPlayerTwo.damage);
-                Console.WriteLine("Player Two wins");
+                arena.ArenaLog.AddTextToLog(arena.playerOne.Username.ToUpper() + ": " + cardPlayerOne.name + " with " + this.currentDamageCardOne + " Damage fights against " + arena.playerTwo.Username.ToUpper() + ": " + cardPlayerTwo.name + " with " + this.currentDamageCardTwo);
+                arena.ArenaLog.AddTextToLog(arena.playerTwo.Username.ToUpper() + " wins this Round!");
                 return WinnerCard.CardPlayerTwo;
             }
             else
             {
                 //draw
-                Console.WriteLine("\nDamage Card One: " + this.cardPlayerOne.damage);
-                Console.WriteLine("Damage Card Two: " + this.cardPlayerTwo.damage);
-                Console.WriteLine("Draw");
+                arena.ArenaLog.AddTextToLog(arena.playerOne.Username.ToUpper() + ": " + cardPlayerOne.name + " with " + this.currentDamageCardOne + " Damage fights against " + arena.playerTwo.Username.ToUpper() + ": " + cardPlayerTwo.name + " with " + this.currentDamageCardTwo);
+                arena.ArenaLog.AddTextToLog("Draw!");
                 return WinnerCard.Draw;
             }
         }
 
-        public WinnerCard MonsterVsSpell()
+        public WinnerCard MonsterVsSpell(Arena arena)
         {
             if (this.cardPlayerOne.race == Race.Kraken)
             {
-                Console.WriteLine("Kraken vs Spell\n");
+                arena.ArenaLog.AddTextToLog("Kraken from " + arena.playerOne.Username.ToUpper() + " is immune against spell from " + arena.playerTwo.Username.ToUpper());
                 return WinnerCard.CardPlayerOne;
             }
             else if (this.cardPlayerTwo.race == Race.Kraken)
             {
-                Console.WriteLine("Spell vs Kraken\n");
+                arena.ArenaLog.AddTextToLog("Kraken from " + arena.playerTwo.Username.ToUpper() + " is immune against spell from " + arena.playerOne.Username.ToUpper());
                 return WinnerCard.CardPlayerTwo;
             }
             else if (this.cardPlayerOne.race == Race.Knight && this.cardPlayerTwo.element == Element.Water)
             {
-                Console.WriteLine("Knight vs WaterSpell\n");
+                arena.ArenaLog.AddTextToLog("Knight from " + arena.playerOne.Username.ToUpper() + " gets drowned by WaterSpell from " + arena.playerTwo.Username.ToUpper());
                 return WinnerCard.CardPlayerTwo;
             }
             else if (this.cardPlayerTwo.race == Race.Knight && this.cardPlayerOne.element == Element.Water)
             {
-                Console.WriteLine("WaterSpell vs Knight\n");
+                arena.ArenaLog.AddTextToLog("Knight from " + arena.playerTwo.Username.ToUpper() + " gets drowned by WaterSpell from " + arena.playerOne.Username.ToUpper());
                 return WinnerCard.CardPlayerOne;
             }
             else
@@ -262,7 +271,7 @@ namespace MTCG
             }
         }
 
-        public void WriteCardInfo(BaseCard card)
+        /*public void WriteCardInfo(BaseCard card)
         {
             switch (card.category)
             {
@@ -278,6 +287,6 @@ namespace MTCG
                         break;
                     }
             }
-        }
+        }*/
     }
 }

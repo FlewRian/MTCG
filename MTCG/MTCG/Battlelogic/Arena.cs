@@ -7,45 +7,68 @@ namespace MTCG
 {
     public class Arena
     {
-        private List<BaseCard> deckPlayerOne = new List<BaseCard>();
-        private List<BaseCard> deckPlayerTwo = new List<BaseCard>();
-        private int playerOne;
-        private int playerTwo;
+        private List<BaseCard> deckPlayerOne;
+        private List<BaseCard> deckPlayerTwo;
+        public Player playerOne { get; set; }
+        public Player playerTwo { get ; set; }
         private BaseCard cardPlayerOne;
         private BaseCard cardPlayerTwo;
         private int cardsInDeckPlayerOne = 0;
         private int cardsInDeckPlayerTwo = 0;
         private WinnerCard winnerCard;
-        private PlayerEnum winner;
+        //private PlayerEnum winner;
+        public int Roundcount { get; set; }
+        public int RoundsMax { get; set; }
+        public ArenaLog ArenaLog { get; set; }
 
-        public PlayerEnum Fight(List<BaseCard> deckPlayerOne, List<BaseCard> deckPlayerTwo)
+        public Arena()
         {
-            this.deckPlayerOne = deckPlayerOne;
-            this.deckPlayerTwo = deckPlayerTwo;
+            Roundcount = 1;
+            RoundsMax = 101;
+            ArenaLog = new ArenaLog();
+        }
+
+        public Arena(Player playerOne, Player playerTwo)
+        {
+            Roundcount = 1;
+            RoundsMax = 101;
+            ArenaLog = new ArenaLog();
+            this.playerOne = playerOne;
+            this.playerTwo = playerTwo;
+        }
+
+        public ArenaLog Fight(Player playerOne, Player playerTwo, Arena arena)
+        {
+            this.playerOne = playerOne;
+            this.playerTwo = playerTwo;
+            this.deckPlayerOne = playerOne.CurrentDeck;
+            this.deckPlayerTwo = playerTwo.CurrentDeck;
             Fight fight = new MTCG.Fight();
-            int roundcount = 1;
             Random rnd = new Random();
             int choosenCardPlayerOne = 0;
             int choosenCardPlayerTwo = 0;
-            while (roundcount < 101)
+            while (this.Roundcount < RoundsMax)
             {
-                Console.WriteLine("\nRoundcount: " + roundcount + "\n");
+                ArenaLog.AddTextToLog("Round: " + Roundcount);
+                //Console.WriteLine("\nRoundcount: " + this.Roundcount + "\n");
                 if (!this.deckPlayerOne.Any())
                 {
-                    winner = PlayerEnum.PlayerTwo;
-                    return winner;
+                    ArenaLog.AddTextToLog("--------------------------------------------------\n" + playerTwo.Username.ToUpper() + " leaves the Arena as Winner!\n--------------------------------------------------");
+                    return ArenaLog;
                 }
 
                 if (!this.deckPlayerTwo.Any())
                 {
-                    winner = PlayerEnum.PlayerOne;
-                    return winner;
+                    ArenaLog.AddTextToLog("--------------------------------------------------\n" + playerOne.Username.ToUpper() + " leaves the Arena as Winner!\n--------------------------------------------------");
+                    return ArenaLog;
                 }
                 this.cardsInDeckPlayerOne = this.deckPlayerOne.Count;
                 this.cardsInDeckPlayerTwo = this.deckPlayerTwo.Count;
 
-                Console.WriteLine("Cards in Deck Player One: " + cardsInDeckPlayerOne);
-                Console.WriteLine("Cards in Deck Player Two: " + cardsInDeckPlayerTwo + "\n");
+                ArenaLog.AddTextToLog("Cards in Deck Player One: " + cardsInDeckPlayerOne);
+                ArenaLog.AddTextToLog("Cards in Deck Player Two: " + cardsInDeckPlayerTwo);
+                //Console.WriteLine("Cards in Deck Player One: " + cardsInDeckPlayerOne);
+                //Console.WriteLine("Cards in Deck Player Two: " + cardsInDeckPlayerTwo + "\n");
 
                 choosenCardPlayerOne = rnd.Next(0, cardsInDeckPlayerOne);
                 this.cardPlayerOne = deckPlayerOne[choosenCardPlayerOne];
@@ -53,7 +76,7 @@ namespace MTCG
                 choosenCardPlayerTwo = rnd.Next(0, cardsInDeckPlayerTwo);
                 this.cardPlayerTwo = deckPlayerTwo[choosenCardPlayerTwo];
 
-                winnerCard = fight.FightRound(cardPlayerOne, cardPlayerTwo);
+                winnerCard = fight.FightRound(cardPlayerOne, cardPlayerTwo, arena);
 
                 switch (winnerCard)
                 {
@@ -74,10 +97,10 @@ namespace MTCG
                             break;
                         }
                 }
-                roundcount++;
+                this.Roundcount++;
             }
-            winner = PlayerEnum.Draw;
-            return winner;
+            ArenaLog.AddTextToLog("--------------------------------------------------\nDraw! No Winner after 100 Rounds\n--------------------------------------------------");
+            return ArenaLog;
         }
     }
 }

@@ -16,10 +16,11 @@ namespace MTCG
         public double Damage { get; set; }
         public Race race { get; set; }
         public Category category { get; set; }
+        public Element elementType { get; set; }
 
         public BaseCard ConvertToCard()
         {
-            Element elementType = Element.Normal;
+            elementType = Element.Normal;
             if (Regex.IsMatch(Name, "Fire.*"))
                 elementType = Element.Fire;
             if (Regex.IsMatch(Name, "Water.*"))
