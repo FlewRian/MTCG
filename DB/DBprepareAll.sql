@@ -76,4 +76,3 @@ winner VARCHAR(255),
 CONSTRAINT fk_battle
 	FOREIGN KEY(id) REFERENCES battle(id)
 );
---

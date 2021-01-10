@@ -123,7 +123,7 @@ namespace MTCG_Test
         public void FightMonsterVsMonsterSpezial()
         {
             Monstercard normalWizzard = new Monstercard(15, "NormalWizzard", "1", Element.Normal, Race.Wizzard);
-            Monstercard normalOrc = new Monstercard(15, "NormalWizzard", "2", Element.Normal, Race.Orc);
+            Monstercard normalOrc = new Monstercard(15, "NormalOrc", "2", Element.Normal, Race.Orc);
             Monstercard fireElve = new Monstercard(15, "FireElve", "3", Element.Fire, Race.Elve);
             Monstercard fireDargon = new Monstercard(15, "FireDragon", "4", Element.Fire, Race.Dragon);
             Player player1 = new Player("Herbert");
