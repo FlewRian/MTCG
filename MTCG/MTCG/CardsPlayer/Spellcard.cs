@@ -10,7 +10,12 @@ namespace MTCG
         {
             this.element = element;
             this.category = Category.Spell;
-            //Console.WriteLine(this.category + this.name + this.damage + this.element);
+        }
+
+        public Spellcard(double damage, Element element) : base(damage, element)
+        {
+            this.element = element;
+            this.damage = damage;
         }
     }
 }

@@ -24,5 +24,11 @@ namespace MTCG
         {
             this.element = element;
         }
+
+        public BaseCard(double damage, Element element)
+        {
+            this.element = element;
+            this.damage = damage;
+        }
     }
 }

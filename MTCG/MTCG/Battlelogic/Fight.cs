@@ -270,23 +270,5 @@ namespace MTCG
                 return WinnerCard.Draw;
             }
         }
-
-        /*public void WriteCardInfo(BaseCard card)
-        {
-            switch (card.category)
-            {
-                case Category.Spell:
-                    {
-                        Console.WriteLine("Name: " + card.name + ", Category: " + card.category + ", Element: " + card.element + ", Damage: " + card.damage);
-                        break;
-                    }
-
-                case Category.Monster:
-                    {
-                        Console.WriteLine("Name: " + card.name + ", Category: " + card.category + ", Element: " + card.element + ", Race: " + card.race + ", Damage: " + card.damage);
-                        break;
-                    }
-            }
-        }*/
     }
 }

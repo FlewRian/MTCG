@@ -9,15 +9,11 @@ namespace MTCG
         public string HttpVerb { get; set; }
         public string FirstLine { get; set; }
         public string MessagePath { get; set; }
-        public int MessagePathNumber { get; set; }
         public int ContentLength { get; set; }
         public string Content { get; set; }
         private List<string> messagesList = new List<string>();
         public bool BodyExists { get; set; } = false;
-        public string Response { get; set; }
-        public int ResponseMessagesId { get; set; }
         public bool IsMessages { get; set; }
-        //public string ResponseMessages { get; set; }
         public string AuthorizationToken { get; set; }
 
         public RequestContext(string inputMessage, List<string> list)

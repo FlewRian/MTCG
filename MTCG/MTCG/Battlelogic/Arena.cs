@@ -16,7 +16,6 @@ namespace MTCG
         private int cardsInDeckPlayerOne = 0;
         private int cardsInDeckPlayerTwo = 0;
         private WinnerCard winnerCard;
-        //private PlayerEnum winner;
         public int Roundcount { get; set; }
         public int RoundsMax { get; set; }
         public ArenaLog ArenaLog { get; set; }
@@ -50,7 +49,6 @@ namespace MTCG
             while (this.Roundcount < RoundsMax)
             {
                 ArenaLog.AddTextToLog("Round: " + Roundcount);
-                //Console.WriteLine("\nRoundcount: " + this.Roundcount + "\n");
                 if (!this.deckPlayerOne.Any())
                 {
                     ArenaLog.AddTextToLog("--------------------------------------------------\n" + playerTwo.Username.ToUpper() + " leaves the Arena as Winner!\n--------------------------------------------------");
@@ -67,8 +65,6 @@ namespace MTCG
 
                 ArenaLog.AddTextToLog("Cards in Deck Player One: " + cardsInDeckPlayerOne);
                 ArenaLog.AddTextToLog("Cards in Deck Player Two: " + cardsInDeckPlayerTwo);
-                //Console.WriteLine("Cards in Deck Player One: " + cardsInDeckPlayerOne);
-                //Console.WriteLine("Cards in Deck Player Two: " + cardsInDeckPlayerTwo + "\n");
 
                 choosenCardPlayerOne = rnd.Next(0, cardsInDeckPlayerOne);
                 this.cardPlayerOne = deckPlayerOne[choosenCardPlayerOne];

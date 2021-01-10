@@ -485,8 +485,6 @@ namespace MTCG
             if (username == null)
                 return CreateResponse("400 Bad Request", "text/plain", "UserToken null Unauthorized command!");
 
-            /////////////////////////////////////////////////////////////////////////////////////////////////////
-
             using var conn = new NpgsqlConnection(ConnectionString);
             conn.Open();
 
@@ -601,7 +599,6 @@ namespace MTCG
 
                     reader6.Close();
 
-
                     //DB inputs
                     var deck1 = new List<BaseCard>();
                     var deck2 = new List<BaseCard>();
@@ -681,10 +678,6 @@ namespace MTCG
             {
                 return CreateResponse("400 Bad Request", "text/plain", "PostgresError");
             }
-
-
-            /////////////////////////////////////////////////////////////////////////////////////////////////////
-
         }
 
         public string GetUsernameFromToken(string token)
@@ -719,8 +712,3 @@ namespace MTCG
         }
     }
 }
-
-
-//"HTTP/1.1 200 OK\r\nServer: MTCG-Server\r\n";
-//"HTTP/1.1 400 Bad Request\r\nServer: MTCG-Server\r\n";
-//"HTTP/1.1 404 Not Found\r\nServer: MTCG-Server\r\n";

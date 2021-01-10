@@ -35,7 +35,6 @@ namespace MTCG
 
         private static void ConnectUsers(TcpListener listener)
         {
-            //Console.WriteLine("Hallo ich bin ein Client");
             List<string> messagesList = new List<string>();
             var socket = listener.AcceptTcpClient();
             var message = new MessageInput(socket, messagesList);

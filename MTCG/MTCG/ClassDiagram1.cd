@@ -1,21 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="MTCG.MessageInput">
-    <Position X="17" Y="0.5" Width="1.5" />
+    <Position X="9.25" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Server\MessageInput.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MTCG.RequestContext">
-    <Position X="18.75" Y="0.5" Width="1.5" />
+    <Position X="11" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAACAAAAwJABAAAAAAAAAAAACgAABADEAAAAQAAACA=</HashCode>
+      <HashCode>AAAACAAAAwIAAAAAAAAAAAAAACgAABADEAAAAAAAACA=</HashCode>
       <FileName>Server\RequestContext.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MTCG.RestServer">
-    <Position X="15.25" Y="0.5" Width="1.5" />
+    <Position X="7.5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAhAAAAAA=</HashCode>
       <FileName>Server\RestServer.cs</FileName>
@@ -42,13 +42,6 @@
       <FileName>Battlelogic\Arena.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MTCG.Deck">
-    <Position X="11.75" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
-      <FileName>CardsPlayer\Deck.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="MTCG.BaseCard">
     <Position X="5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
@@ -57,31 +50,38 @@
     </TypeIdentifier>
   </Class>
   <Class Name="MTCG.Fight">
-    <Position X="2.5" Y="5.75" Width="1.5" />
+    <Position X="2.25" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAgQCgABAgAIAAAAgAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
       <FileName>Battlelogic\Fight.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MTCG.Player">
-    <Position X="7.75" Y="5.5" Width="1.5" />
+    <Position X="10.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAACQAACAQAAAAAABACIAAIAAAAAAA=</HashCode>
       <FileName>CardsPlayer\Player.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MTCG.JsonCard">
-    <Position X="12" Y="7.25" Width="1.5" />
+    <Position X="8.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAECAAAAAAAAAIAAAAAQAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <HashCode>AAACAECAAAQAAAAAIAAAAAQAAAAAAAAAAAAIAAAAAAA=</HashCode>
       <FileName>CardsPlayer\JsonCard.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MTCG.ArenaLog">
-    <Position X="4.25" Y="5.75" Width="1.5" />
+    <Position X="4" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAACACAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
       <FileName>Battlelogic\ArenaLog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MTCG.RequestHandler">
+    <Position X="12.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAIACIAAAAAEAAIAQCAgAABRAEE=</HashCode>
+      <FileName>Server\RequestHandler.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Enum Name="MTCG.Element">

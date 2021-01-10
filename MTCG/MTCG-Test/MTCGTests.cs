@@ -242,5 +242,27 @@ namespace MTCG_Test
             Assert.AreEqual(card.category, Category.Spell);
             Assert.AreEqual(card.elementType, Element.Fire);
         }
+
+        [Test]
+        public void TestCheckElementCurrentDamage()
+        {
+            var card1 = new Spellcard(20, Element.Normal);
+            var card2 = new Spellcard(14, Element.Fire);
+            var card3 = new Spellcard(30, Element.Water);
+            var fight1 = new Fight(card1, card2);
+            var fight2 = new Fight(card2, card3);
+            var fight3 = new Fight(card3, card1);
+            
+            fight1.CheckElement();
+            fight2.CheckElement();
+            fight3.CheckElement();
+
+            Assert.AreEqual(fight1.currentDamageCardOne, 10);
+            Assert.AreEqual(fight1.currentDamageCardTwo, 28);
+            Assert.AreEqual(fight2.currentDamageCardOne, 7);
+            Assert.AreEqual(fight2.currentDamageCardTwo, 60);
+            Assert.AreEqual(fight3.currentDamageCardOne, 15);
+            Assert.AreEqual(fight3.currentDamageCardTwo, 40);
+        }
     }
 }

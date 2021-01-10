@@ -11,7 +11,12 @@ namespace MTCG
             this.race = race;
             this.element = element;
             this.category = Category.Monster;
-            //Console.WriteLine(this.category + this.name + this.damage + this.element + this.race);
+        }
+
+         public Monstercard(double damage, Element element) : base(damage, element)
+        {
+            this.element = element;
+            this.damage = damage;
         }
     }
 }
